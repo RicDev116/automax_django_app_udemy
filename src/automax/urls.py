@@ -20,10 +20,12 @@ from django.conf.urls.static import static
 
 from automax import settings
 from main import urls as main_app_urls
+from users import urls as users_app_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(main_app_urls)),  # Main app URL pattern
+    path('', include(users_app_urls)),  # Users app URL pattern
 ]
 
 if(settings.DEBUG):
