@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from .models import Profile
+from .models import Profile, Location
 
 
 # post_save is a signal that is sent after a model's save() method is called
@@ -17,3 +17,12 @@ def create_user_profile(sender, instance, created, **kwargs):
         #create a profile instance for the user, then asociate 
         #the profile with the user instance
         Profile.objects.create(user=instance)
+
+@receiver(post_save,sender=Profile)
+def create_profile_location(sender, instance, created, **kwargs):
+    if created:
+        #create a location instance for the profile, then asociate 
+        #the location with the profile instance
+        profile_location = Location.objects.create()
+        instance.location = profile_location
+        instance.save()
