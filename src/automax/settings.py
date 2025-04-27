@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'localflavor', # for localflavor
     'main', # once the app is created, add it here
+    'users'
 ]
 
 MIDDLEWARE = [
