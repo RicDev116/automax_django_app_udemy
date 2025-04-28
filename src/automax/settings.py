@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'localflavor', # for localflavor
+    'crispy_forms', # for crispy forms
+    'crispy_bootstrap4',  # Agrega esta línea
     'main', # once the app is created, add it here
     'users'
 ]
@@ -120,10 +122,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -133,3 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+
+# Media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Crispy Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
